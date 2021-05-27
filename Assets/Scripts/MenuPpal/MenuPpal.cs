@@ -80,9 +80,22 @@ public class MenuPpal : MonoBehaviour {
     void salirClicked()
     {
         //Se cierra la aplicación
-        Application.Quit();
+       // Application.Quit();
         //Se cierra la ejecución si se está en el entorno de desarrollo Unity 3D
-        UnityEditor.EditorApplication.isPlaying = false;
+      //  UnityEditor.EditorApplication.isPlaying = false;
+
+      if (Input.GetKeyUp(KeyCode.Escape))
+         {
+             if (Application.platform == RuntimePlatform.Android)
+             {
+                 AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+                 activity.Call<bool>("moveTaskToBack", true);
+             }
+             else
+             {
+                 Application.Quit();
+             }
+         }
     }
 
    

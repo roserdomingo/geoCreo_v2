@@ -12,22 +12,36 @@ public class SonidoPueba : MonoBehaviour
 
     [SerializeField]
     Object ondas;
+    //AudioSource[] audio;
 
 
 
     public AudioSource audio;
+    public AudioSource audio2;
+
 
     void OnTriggerEnter(Collider target)
+
     {
+       // Audio = GetComponents<AudioSource>();
 
         var position = new Vector3(transform.position.x, transform.position.y, -2);
 
         if (target.gameObject.tag.Equals(tagNames[(int)TagNamesTypes.Bolas]))
         {
-            audio.Play();
+           audio2.Play();
             
             Instantiate(ondas, position, transform.rotation);
         }
+
+        if (target.gameObject.tag.Equals(tagNames[(int)TagNamesTypes.Suelo]))
+        {
+           audio.Play();
+            
+            Instantiate(ondas, position, transform.rotation);
+
+            
+        }    
         
 
     }
