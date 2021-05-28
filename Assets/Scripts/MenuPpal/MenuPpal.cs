@@ -10,7 +10,8 @@ using UnityEngine.SceneManagement;
 
 enum BotonesMenuPpal { MPPal_Jugar, MPPal_ModoDeJuego, MPPal_Ajustes, MPPal_Salir, MPPal_TotalBotones }
 
-public class MenuPpal : MonoBehaviour {
+public class MenuPpal : MonoBehaviour
+{
 
     string[] nombreBoton = {"Jugar",
                             "ModoDeJuego",
@@ -27,7 +28,7 @@ public class MenuPpal : MonoBehaviour {
         //Select the empty GameObject (Menu Manager) in the Hierarchy 
         //Drag and drop each one of the UI Buttons from the Hierarchy to the every Button array fields in the Inspector when the Menu Manager empty gameObject is selected
 
-        for (int i = (int)BotonesMenuPpal.MPPal_Jugar; i< (int)BotonesMenuPpal.MPPal_TotalBotones;i++)
+        for (int i = (int)BotonesMenuPpal.MPPal_Jugar; i < (int)BotonesMenuPpal.MPPal_TotalBotones; i++)
             boton[i] = GameObject.Find(nombreBoton[i]).GetComponent<Button>();
 
         //Calls the jugarClicked method when you click the Button Jugar
@@ -80,25 +81,24 @@ public class MenuPpal : MonoBehaviour {
     void salirClicked()
     {
         //Se cierra la aplicación
-       // Application.Quit();
+         Application.Quit();
         //Se cierra la ejecución si se está en el entorno de desarrollo Unity 3D
-      //  UnityEditor.EditorApplication.isPlaying = false;
+        //  UnityEditor.EditorApplication.isPlaying = false;
 
-      if (Input.GetKeyUp(KeyCode.Escape))
-         {
-             if (Application.platform == RuntimePlatform.Android)
-             {
-                 AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
-                 activity.Call<bool>("moveTaskToBack", true);
-             }
-             else
-             {
-                 Application.Quit();
-             }
-         }
+
+        // if (Application.platform == RuntimePlatform.Android)
+        // {
+        //     AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+        //     activity.Call<bool>("moveTaskToBack", true);
+        // }
+        // else
+        // {
+        //     Application.Quit();
+        // }
+
     }
 
-   
+
 
     void genericClicked(string message)
     {

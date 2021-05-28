@@ -67,7 +67,7 @@ public class SpawnerScript04 : MonoBehaviour
     public void SpawnObjects(int num)
     {
 
-        var position = new Vector3(Random.Range(-2.0f, 2.0f), 6, -2);
+        var position = new Vector3(Random.Range(-2.0f, 2.0f), 11, -2);
         Instantiate(spheres[num], position, transform.rotation);
     }
 

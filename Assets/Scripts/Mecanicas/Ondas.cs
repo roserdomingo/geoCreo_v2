@@ -43,7 +43,7 @@ public class Ondas : MonoBehaviour
     {
          float OpacitySpeed = 0.005f; //the speed that your alpha changes
         Color color = GetComponent<SpriteRenderer>().color;
-        Scale += 0.05f;
+        Scale += 0.07f;
         color.r = 1.0f;
         color.g = 1.0f;
         color.b = 1.0f;
